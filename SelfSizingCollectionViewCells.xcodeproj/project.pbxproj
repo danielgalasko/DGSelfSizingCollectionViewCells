@@ -14,6 +14,7 @@
 		42EAEAE119C9EBF600C2AEEC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42EAEAE019C9EBF600C2AEEC /* Images.xcassets */; };
 		42EAEAE419C9EBF600C2AEEC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42EAEAE219C9EBF600C2AEEC /* LaunchScreen.xib */; };
 		42EAEAF019C9EBF600C2AEEC /* SelfSizingCollectionViewCellsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 42EAEAEF19C9EBF600C2AEEC /* SelfSizingCollectionViewCellsTests.m */; };
+		42EAEAFE19C9F96A00C2AEEC /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42EAEAFD19C9F96A00C2AEEC /* CollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		42EAEAE919C9EBF600C2AEEC /* SelfSizingCollectionViewCellsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SelfSizingCollectionViewCellsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		42EAEAEE19C9EBF600C2AEEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		42EAEAEF19C9EBF600C2AEEC /* SelfSizingCollectionViewCellsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelfSizingCollectionViewCellsTests.m; sourceTree = "<group>"; };
+		42EAEAFC19C9F96A00C2AEEC /* CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
+		42EAEAFD19C9F96A00C2AEEC /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,11 +84,13 @@
 		42EAEAD219C9EBF600C2AEEC /* SelfSizingCollectionViewCells */ = {
 			isa = PBXGroup;
 			children = (
-				42EAEAD719C9EBF600C2AEEC /* AppDelegate.h */,
-				42EAEAD819C9EBF600C2AEEC /* AppDelegate.m */,
+				42EAEAFC19C9F96A00C2AEEC /* CollectionViewCell.h */,
+				42EAEAFD19C9F96A00C2AEEC /* CollectionViewCell.m */,
 				42EAEADA19C9EBF600C2AEEC /* ViewController.h */,
 				42EAEADB19C9EBF600C2AEEC /* ViewController.m */,
 				42EAEADD19C9EBF600C2AEEC /* Main.storyboard */,
+				42EAEAD719C9EBF600C2AEEC /* AppDelegate.h */,
+				42EAEAD819C9EBF600C2AEEC /* AppDelegate.m */,
 				42EAEAE019C9EBF600C2AEEC /* Images.xcassets */,
 				42EAEAE219C9EBF600C2AEEC /* LaunchScreen.xib */,
 				42EAEAD319C9EBF600C2AEEC /* Supporting Files */,
@@ -219,6 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42EAEAFE19C9F96A00C2AEEC /* CollectionViewCell.m in Sources */,
 				42EAEADC19C9EBF600C2AEEC /* ViewController.m in Sources */,
 				42EAEAD919C9EBF600C2AEEC /* AppDelegate.m in Sources */,
 				42EAEAD619C9EBF600C2AEEC /* main.m in Sources */,

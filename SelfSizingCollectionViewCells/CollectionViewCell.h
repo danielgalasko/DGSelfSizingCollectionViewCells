@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  CollectionCellCollectionViewCell.h
 //  SelfSizingCollectionViewCells
 //
 //  Created by Daniel Galasko on 9/17/14.
@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UICollectionViewController
-
+@interface CollectionViewCell : UICollectionViewCell
+@property (weak, nonatomic) IBOutlet UITextView *textView;
 
 @end
-
