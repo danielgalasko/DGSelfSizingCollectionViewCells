@@ -418,6 +418,7 @@
 				42EAEAF519C9EBF600C2AEEC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		42EAEAF619C9EBF600C2AEEC /* Build configuration list for PBXNativeTarget "SelfSizingCollectionViewCellsTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +427,7 @@
 				42EAEAF819C9EBF600C2AEEC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
