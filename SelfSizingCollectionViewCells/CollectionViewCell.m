@@ -11,7 +11,7 @@
 @implementation CollectionViewCell
 
 - (CGSize)sizeThatFits:(CGSize)size {
-    [self.textView sizeThatFits:CGSizeMake(CGRectGetWidth(self.bounds),CGFLOAT_MAX)];
+    [self.textView sizeThatFits:CGSizeMake(size.width,CGFLOAT_MAX)];
     return CGSizeMake(size.width, self.textView.frame.size.height);
 }
 
@@ -20,7 +20,7 @@
     UIFont *font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
     self.textView.text = self.textView.text;
     self.textView.font = font;
-    CGSize size = [self.textView sizeThatFits:CGSizeMake(CGRectGetWidth(layoutAttributes.frame),CGFLOAT_MAX)];
+    CGSize size = [self.textView sizeThatFits:CGSizeMake(CGRectGetWidth(layoutAttributes.bounds),CGFLOAT_MAX)];
     CGRect newFrame = attr.frame;
     newFrame.size.height = size.height;
     attr.frame = newFrame;

@@ -10,8 +10,8 @@
 #import "CollectionViewCell.h"
 
 NSUInteger const kNumberOfCells = 100;
-NSUInteger const kMinStringLength = 100;
-NSUInteger const kMaxStringLength = 500;
+NSUInteger const kMinStringLength = 50;
+NSUInteger const kMaxStringLength = 200;
 
 @interface ViewController ()<UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 @property (strong,nonatomic) NSMutableArray *array;
