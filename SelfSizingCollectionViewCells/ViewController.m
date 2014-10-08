@@ -9,40 +9,37 @@
 #import "ViewController.h"
 #import "CollectionViewCell.h"
 
-NSUInteger const knumberOfCells = 100;
+NSUInteger const kNumberOfCells = 100;
+NSUInteger const kMinStringLength = 100;
+NSUInteger const kMaxStringLength = 500;
 
 @interface ViewController ()<UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 @property (strong,nonatomic) NSMutableArray *array;
 @end
 
 @implementation ViewController
-- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
-    [(UICollectionViewFlowLayout *)self.collectionView.collectionViewLayout setEstimatedItemSize:CGSizeMake(size.width, 400)];
-    [self reload];
-}
-- (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
+
 - (void)reload {
     [self.array removeAllObjects];
-    for (int i = 0; i<knumberOfCells;++i) {
-        [self.array addObject:[self randomStringWithLength:MAX(10,arc4random_uniform(100))]];
+    for (int i = 0; i < kNumberOfCells; ++i) {
+        [self.array addObject:[self randomStringWithLength:MAX(kMinStringLength,arc4random_uniform(kMaxStringLength))]];
     }
     self.collectionView.dataSource = self;
     [self.collectionViewLayout invalidateLayout];
     [self.collectionView reloadData];
 }
 #pragma mark - View Lifecycle -
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [(UICollectionViewFlowLayout *)self.collectionView.collectionViewLayout setEstimatedItemSize:CGSizeMake(CGRectGetWidth(self.view.bounds), 100)];
-    [self reload];
-}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reload) name:UIContentSizeCategoryDidChangeNotification object:nil];
+    [(UICollectionViewFlowLayout *)self.collectionView.collectionViewLayout setEstimatedItemSize:CGSizeMake(CGRectGetWidth(self.view.bounds) - 20, 400)];
+    [self reload];
 }
-
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+    [(UICollectionViewFlowLayout *)self.collectionView.collectionViewLayout setEstimatedItemSize:CGSizeMake(size.width - 20, 400)];
+    [self reload];
+}
 #pragma mark - UICollectionViewDataSource -
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     CollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"identifier" forIndexPath:indexPath];
@@ -55,6 +52,10 @@ NSUInteger const knumberOfCells = 100;
 }
 
 #pragma mark - Convenience =
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (NSMutableArray *)array {
     if (!_array) {
         _array = [NSMutableArray array];

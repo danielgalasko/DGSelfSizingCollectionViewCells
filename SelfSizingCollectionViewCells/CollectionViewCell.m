@@ -12,7 +12,7 @@
 
 - (CGSize)sizeThatFits:(CGSize)size {
     [self.textView sizeThatFits:CGSizeMake(CGRectGetWidth(self.bounds),CGFLOAT_MAX)];
-    return CGSizeMake(100, self.textView.frame.size.height);
+    return CGSizeMake(size.width, self.textView.frame.size.height);
 }
 
 - (UICollectionViewLayoutAttributes *)preferredLayoutAttributesFittingAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes {
