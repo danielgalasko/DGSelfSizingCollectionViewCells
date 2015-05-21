@@ -10,20 +10,18 @@
 
 @implementation CollectionViewCell
 
-- (CGSize)sizeThatFits:(CGSize)size {
-    [self.textView sizeThatFits:CGSizeMake(size.width,CGFLOAT_MAX)];
-    return CGSizeMake(size.width, self.textView.frame.size.height);
-}
-
 - (UICollectionViewLayoutAttributes *)preferredLayoutAttributesFittingAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes {
     UICollectionViewLayoutAttributes *attr = [layoutAttributes copy];
-    UIFont *font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
-    self.textView.text = self.textView.text;
-    self.textView.font = font;
-    CGSize size = [self.textView sizeThatFits:CGSizeMake(CGRectGetWidth(layoutAttributes.bounds),CGFLOAT_MAX)];
+    self.frame = attr.frame;
+    [self setNeedsLayout];
+    [self layoutIfNeeded];
+    CGFloat fontSize = [UIFontDescriptor preferredFontDescriptorWithTextStyle:UIFontTextStyleHeadline].pointSize * 1.4;
+    self.textLabel.font = [UIFont fontWithName:[[UIFont fontNamesForFamilyName:self.textLabel.font.familyName] firstObject] size:fontSize];
+    CGSize size = [self.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
     CGRect newFrame = attr.frame;
-    newFrame.size.height = size.height;
+    newFrame.size = size;
     attr.frame = newFrame;
+    NSLog(@"Height:<%f> Width: <%f>",attr.frame.size.height,attr.frame.size.width);
     return attr;
 }
 @end

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>B5A18592-BCF8-44D3-A37E-35B7C9717186</string>
+	<key>IDESourceControlProjectName</key>
+	<string>SelfSizingCollectionViewCells</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>BB09B44A3412B21AB63416D1675236DED4450931</key>
+		<string>https://github.com/danielgalasko/DGSelfSizingCollectionViewCells.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>SelfSizingCollectionViewCells.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>BB09B44A3412B21AB63416D1675236DED4450931</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/danielgalasko/DGSelfSizingCollectionViewCells.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>BB09B44A3412B21AB63416D1675236DED4450931</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>BB09B44A3412B21AB63416D1675236DED4450931</string>
+			<key>IDESourceControlWCCName</key>
+			<string>DGSelfSizingCollectionViewCells</string>
+		</dict>
+	</array>
+</dict>
+</plist>

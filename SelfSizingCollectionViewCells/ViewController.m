@@ -10,8 +10,8 @@
 #import "CollectionViewCell.h"
 
 NSUInteger const kNumberOfCells = 100;
-NSUInteger const kMinStringLength = 50;
-NSUInteger const kMaxStringLength = 200;
+NSUInteger const kMinStringLength = 1;
+NSUInteger const kMaxStringLength = 5;
 
 @interface ViewController ()<UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 @property (strong,nonatomic) NSMutableArray *array;
@@ -25,25 +25,35 @@ NSUInteger const kMaxStringLength = 200;
         [self.array addObject:[self randomStringWithLength:MAX(kMinStringLength,arc4random_uniform(kMaxStringLength))]];
     }
     self.collectionView.dataSource = self;
-    [self.collectionViewLayout invalidateLayout];
     [self.collectionView reloadData];
+    [self.collectionView.collectionViewLayout invalidateLayout];
 }
 #pragma mark - View Lifecycle -
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reload) name:UIContentSizeCategoryDidChangeNotification object:nil];
-    [(UICollectionViewFlowLayout *)self.collectionView.collectionViewLayout setEstimatedItemSize:CGSizeMake(CGRectGetWidth(self.view.bounds) - 20, 400)];
     [self reload];
+    [self setEstimatedSizeIfNeeded];
 }
-- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
-    [(UICollectionViewFlowLayout *)self.collectionView.collectionViewLayout setEstimatedItemSize:CGSizeMake(size.width - 20, 400)];
-    [self reload];
+
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    [self setEstimatedSizeIfNeeded];
+}
+
+- (void)setEstimatedSizeIfNeeded {
+    UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout *)self.collectionView.collectionViewLayout;
+    CGFloat estimatedWidth = 100.f;
+    if (flowLayout.estimatedItemSize.width != estimatedWidth) {
+        [flowLayout setEstimatedItemSize:CGSizeMake(estimatedWidth, 100)];
+        [flowLayout invalidateLayout];
+    }
 }
 #pragma mark - UICollectionViewDataSource -
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     CollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"identifier" forIndexPath:indexPath];
-    cell.textView.text = _array[indexPath.row];
+    cell.textLabel.text = _array[indexPath.row];
     return cell;
 }
 
@@ -67,7 +77,7 @@ NSString *const letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
 - (NSString *) randomStringWithLength: (NSUInteger) len {
     NSMutableString *randomString = [NSMutableString stringWithCapacity: len];
     for (NSUInteger i=0; i<len; i++) {
-        [randomString appendFormat: @"%C", [letters characterAtIndex: arc4random_uniform([letters length]) % [letters length]]];
+        [randomString appendFormat: @"%C", [letters characterAtIndex: arc4random_uniform((uint32_t)[letters length]) % [letters length]]];
     }
     return randomString;
 }
