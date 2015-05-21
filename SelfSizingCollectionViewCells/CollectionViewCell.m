@@ -21,7 +21,6 @@
     CGRect newFrame = attr.frame;
     newFrame.size = size;
     attr.frame = newFrame;
-    NSLog(@"Height:<%f> Width: <%f>",attr.frame.size.height,attr.frame.size.width);
     return attr;
 }
 @end
