@@ -59,10 +59,10 @@ class HomeTableViewController: UITableViewController {
         let controller: StoryboardViewControllers
     }
     
-    let cells = [ActionableCells(title: "Static Content Cells with fixed height. Technically since the content never changes these cells should all be the same size. This demonstrates what the layout does when all cells have the same size", controller: StoryboardViewControllers.StaticCellsViewController),
-    ActionableCells(title: "Dynamic Content Cells with fixed height. We should expect to see all cells fill their available sizes. These cells do not override preferredLayoutAttributes", controller: StoryboardViewControllers.DynamicCellsViewController),
-    ActionableCells(title: "Cells overriding preferredLayoutAttributes. We should expect to see dynamic sizing. No autolayout on these cells", controller: StoryboardViewControllers.LayoutAttributesCellsViewController),
-    ActionableCells(title: "Dynamic content cells implementing preferred layout attributes", controller: StoryboardViewControllers.DynamicCellsWithLayoutAttributes)]
+    let cells = [ActionableCells(title: "Static Content Cells. Technically since the content never changes these cells should all be the same size. This demonstrates what the layout does when all cells have the same size", controller: StoryboardViewControllers.StaticCellsViewController),
+        ActionableCells(title: "Dynamic content cells implementing preferred layout attributes in the cell subclass with auto layout", controller: StoryboardViewControllers.DynamicCellsWithLayoutAttributes),
+        ActionableCells(title: "Dynamic Content Cells using auto layout WITHOUT overriding preferredLayoutAttributes", controller: StoryboardViewControllers.DynamicCellsViewController),
+        ActionableCells(title: "Cells overriding preferredLayoutAttributes with NO auto layout. We should expect to see dynamic sizing.", controller: StoryboardViewControllers.LayoutAttributesCellsViewController)]
     
     override func viewDidLoad() {
         super.viewDidLoad()
