@@ -5,7 +5,14 @@ Simple implementation of self sizing `UICollectionViewCells` introduced in iOS 8
 
 ![screenshot](screenshot.png "Vibrant Seperators")
 
-To have dynamic height cells all that is needed is to have our custom cells implement `preferredLayoutAttributesFittingAttributes:` and to set the estimatedItemSize property on `UICollectionViewFlowLayout`.
+This project includes several examples of how self-sizing cells can be achieved. To enable self sizing cells you firs need to set the estimatedItemSize property on `UICollectionViewFlowLayout`.
+
+Then you need to decide on your approach for sizing your cells. You can either let auto layout do the work for you, or you can override `preferredLayoutAttributesFittingAttributes:` and return an appropriate size.
+
+When using Auto Layout make sure that your cells are properly constrained.
+
+When using `preferredLayoutAttributesFittingAttributes:` you will probably need to cache the size you calculate to prevent the system from calling your implementation indefinitely.
+If you modify the frame of the layoutAttributes object thats passed in it will most likely call your implementation again so make sure you calculate once and then just return the layoutAttributes object.
 
 Be warned, if you are seeking to have your collection view look similar to `UITableView` you will need to do a lot more work. 
 Currently the default behaviour for flow layout is to let cells expand in a horizontal direction first. 

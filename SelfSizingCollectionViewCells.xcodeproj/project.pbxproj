@@ -53,6 +53,7 @@
 		46F017D51C738AE20094204D /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		46F017DC1C73A9E10094204D /* RandomStringGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RandomStringGenerator.h; sourceTree = "<group>"; };
 		46F017DD1C73A9E10094204D /* RandomStringGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RandomStringGenerator.m; sourceTree = "<group>"; };
+		46F017DF1C73B8B80094204D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +77,7 @@
 		42EAEAC719C9EBF600C2AEEC = {
 			isa = PBXGroup;
 			children = (
+				46F017DF1C73B8B80094204D /* README.md */,
 				42EAEAD219C9EBF600C2AEEC /* SelfSizingCollectionViewCells */,
 				42EAEAEC19C9EBF600C2AEEC /* SelfSizingCollectionViewCellsTests */,
 				42EAEAD119C9EBF600C2AEEC /* Products */,
