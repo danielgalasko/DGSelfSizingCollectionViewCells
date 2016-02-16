@@ -9,6 +9,7 @@
 #import "DynamicContentCollectionViewController.h"
 #import "CollectionViewCell.h"
 #import "SelfSizingCollectionViewCells-Swift.h"
+#import "RandomStringGenerator.h"
 
 NSUInteger const kNumberOfCells = 100;
 /// Tweak these and watch it break
@@ -27,7 +28,7 @@ NSUInteger const kMaxStringLength = 10;
     [super viewDidLoad];
     [self.array removeAllObjects];
     for (int i = 0; i < kNumberOfCells; ++i) {
-        [self.array addObject:[self randomStringWithLength:MAX(kMinStringLength,arc4random_uniform(kMaxStringLength))]];
+        [self.array addObject:[RandomStringGenerator randomStringWithLength:MAX(kMinStringLength,arc4random_uniform(kMaxStringLength))]];
     }
     [self.collectionView registerClass:[SimpleCell class] forCellWithReuseIdentifier:NSStringFromClass([SimpleCell class])];
     self.collectionView.dataSource = self;
@@ -78,16 +79,6 @@ NSUInteger const kMaxStringLength = 10;
 - (void)reload {
     [self setEstimatedSizeIfNeeded];
     [self.collectionView reloadData];
-}
-
-NSString *const letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-
-- (NSString *) randomStringWithLength: (NSUInteger) len {
-    NSMutableString *randomString = [NSMutableString stringWithCapacity:len];
-    for (NSUInteger i=0; i<len; i++) {
-        [randomString appendFormat: @"%C", [letters characterAtIndex: arc4random_uniform((uint32_t)[letters length]) % [letters length]]];
-    }
-    return randomString;
 }
 
 - (BOOL)prefersStatusBarHidden {

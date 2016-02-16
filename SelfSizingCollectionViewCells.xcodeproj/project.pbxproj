@@ -18,6 +18,7 @@
 		46F017D21C7386500094204D /* SimpleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F017D11C7386500094204D /* SimpleCell.swift */; };
 		46F017D41C7388650094204D /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F017D31C7388650094204D /* HomeTableViewController.swift */; };
 		46F017D61C738AE20094204D /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F017D51C738AE20094204D /* CollectionViewController.swift */; };
+		46F017DE1C73A9E10094204D /* RandomStringGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 46F017DD1C73A9E10094204D /* RandomStringGenerator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,8 @@
 		46F017D11C7386500094204D /* SimpleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleCell.swift; sourceTree = "<group>"; };
 		46F017D31C7388650094204D /* HomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
 		46F017D51C738AE20094204D /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		46F017DC1C73A9E10094204D /* RandomStringGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RandomStringGenerator.h; sourceTree = "<group>"; };
+		46F017DD1C73A9E10094204D /* RandomStringGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RandomStringGenerator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +107,8 @@
 				46F017D11C7386500094204D /* SimpleCell.swift */,
 				46F017D01C7386500094204D /* SelfSizingCollectionViewCells-Bridging-Header.h */,
 				46F017D31C7388650094204D /* HomeTableViewController.swift */,
+				46F017DC1C73A9E10094204D /* RandomStringGenerator.h */,
+				46F017DD1C73A9E10094204D /* RandomStringGenerator.m */,
 				46F017D51C738AE20094204D /* CollectionViewController.swift */,
 			);
 			path = SelfSizingCollectionViewCells;
@@ -237,6 +242,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				46F017D41C7388650094204D /* HomeTableViewController.swift in Sources */,
+				46F017DE1C73A9E10094204D /* RandomStringGenerator.m in Sources */,
 				42EAEAFE19C9F96A00C2AEEC /* CollectionViewCell.m in Sources */,
 				42EAEADC19C9EBF600C2AEEC /* DynamicContentCollectionViewController.m in Sources */,
 				42EAEAD919C9EBF600C2AEEC /* AppDelegate.m in Sources */,
