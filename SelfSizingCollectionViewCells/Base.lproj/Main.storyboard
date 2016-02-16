@@ -22,8 +22,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T0E-Kv-nd5">
-                                            <rect key="frame" x="279" y="11" width="42" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T0E-Kv-nd5">
+                                            <rect key="frame" x="8" y="8" width="584" height="27.5"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -76,7 +76,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KfY-25-F53">
-                                            <rect key="frame" x="0.0" y="0.0" width="231" height="100"/>
+                                            <rect key="frame" x="4" y="0.0" width="223" height="100"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="100" id="OCA-xj-RSP"/>
                                                 <constraint firstAttribute="width" relation="lessThanOrEqual" constant="300" id="zO5-EQ-V4I"/>
@@ -90,8 +90,8 @@
                                 </view>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="KfY-25-F53" firstAttribute="leading" secondItem="vFM-DG-V4b" secondAttribute="leading" id="e03-61-f1U"/>
-                                    <constraint firstItem="KfY-25-F53" firstAttribute="trailing" secondItem="vFM-DG-V4b" secondAttribute="trailing" id="xJZ-qz-wjJ"/>
+                                    <constraint firstItem="KfY-25-F53" firstAttribute="leading" secondItem="vFM-DG-V4b" secondAttribute="leading" constant="4" id="e03-61-f1U"/>
+                                    <constraint firstItem="KfY-25-F53" firstAttribute="trailing" secondItem="vFM-DG-V4b" secondAttribute="trailing" constant="-4" id="xJZ-qz-wjJ"/>
                                     <constraint firstItem="KfY-25-F53" firstAttribute="bottom" secondItem="vFM-DG-V4b" secondAttribute="bottom" id="xV5-wv-BsQ"/>
                                     <constraint firstItem="KfY-25-F53" firstAttribute="top" secondItem="vFM-DG-V4b" secondAttribute="top" id="zLT-ft-8iM"/>
                                 </constraints>
@@ -124,17 +124,7 @@
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="sul-CH-6pG">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                            </collectionViewCell>
-                        </cells>
+                        <cells/>
                         <connections>
                             <outlet property="dataSource" destination="Af8-kK-R6E" id="GDe-mx-cgZ"/>
                             <outlet property="delegate" destination="Af8-kK-R6E" id="pUx-8l-bEb"/>
