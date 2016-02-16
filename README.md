@@ -1,13 +1,13 @@
 DGSelfSizingCollectionViewCells
 ===============================
 
-Simple implementation of self sizing `UICollectionViewCells` introduced in iOS 8. A picture says a thousand words
+Simple implementation of self sizing `UICollectionViewCells` introduced in iOS 8. This is intended to assist with those coming from [this](http://stackoverflow.com/questions/25895311/uicollectionview-self-sizing-cells-with-auto-layout/25896386#25896386) Stack Overflow post. A picture says a thousand words
 
 ![screenshot](screenshot.png "Vibrant Seperators")
 
-This project includes several examples of how self-sizing cells can be achieved. To enable self sizing cells you firs need to set the estimatedItemSize property on `UICollectionViewFlowLayout`.
+This project includes several examples of how self-sizing cells can be achieved. To enable self sizing cells you first need to set the estimatedItemSize property on `UICollectionViewFlowLayout`.
 
-Then you need to decide on your approach for sizing your cells. You can either let auto layout do the work for you, or you can override `preferredLayoutAttributesFittingAttributes:` and return an appropriate size.
+Then you need to decide on your approach for sizing your cells. You can either let auto layout do the work for you **or** you can override `preferredLayoutAttributesFittingAttributes:` and return an appropriate size.
 
 When using Auto Layout make sure that your cells are properly constrained.
 
