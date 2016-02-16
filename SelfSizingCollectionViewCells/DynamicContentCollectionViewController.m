@@ -12,7 +12,7 @@
 
 NSUInteger const kNumberOfCells = 100;
 /// Tweak these and watch it break
-NSUInteger const kMinStringLength = 3;
+NSUInteger const kMinStringLength = 5;
 NSUInteger const kMaxStringLength = 10;
 
 @interface DynamicContentCollectionViewController ()<UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
@@ -55,7 +55,7 @@ NSUInteger const kMaxStringLength = 10;
 #pragma mark - UICollectionViewDataSource -
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     CollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"identifier" forIndexPath:indexPath];
-    cell.textLabel.text = _array[indexPath.row];
+    cell.text = _array[indexPath.row];
     return cell;
 }
 
