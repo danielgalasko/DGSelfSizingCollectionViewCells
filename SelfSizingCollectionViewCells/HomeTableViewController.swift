@@ -15,6 +15,7 @@ class HomeCell: UITableViewCell {
 enum StoryboardViewControllers {
     case StaticCellsViewController
     case DynamicCellsViewController
+    case LayoutAttributesCellsViewController
     
     func storyboardID() -> String {
         switch self {
@@ -22,12 +23,26 @@ enum StoryboardViewControllers {
             return "CollectionViewController"
         case .DynamicCellsViewController:
             return "DynamicContentCollectionViewController"
+        case .LayoutAttributesCellsViewController:
+            return "CollectionViewController"
         }
     }
     
     func createController() -> UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        return storyboard.instantiateViewControllerWithIdentifier(storyboardID())
+        let controller = storyboard.instantiateViewControllerWithIdentifier(storyboardID())
+        configureControllerIfNeeded(controller)
+        return controller
+    }
+    
+    func configureControllerIfNeeded(controller: UIViewController) {
+        switch self {
+        case .LayoutAttributesCellsViewController:
+            let c = controller as! CollectionViewController
+            c.configuration = CollectionViewController.Configuration(cellType: CollectionViewController.Configuration.CellType.LayoutAttributesCell)
+        default:
+            break
+        }
     }
 }
 
@@ -39,7 +54,8 @@ class HomeTableViewController: UITableViewController {
     }
     
     let cells = [ActionableCells(title: "Static Content Cells with fixed height. Technically since the content never changes these cells should all be the same size. This demonstrates what the layout does when all cells have the same size", controller: StoryboardViewControllers.StaticCellsViewController),
-    ActionableCells(title: "Dynamic Content Cells with fixed height. We should expect to see all cells fill their available sizes", controller: StoryboardViewControllers.DynamicCellsViewController)]
+    ActionableCells(title: "Dynamic Content Cells with fixed height. We should expect to see all cells fill their available sizes", controller: StoryboardViewControllers.DynamicCellsViewController),
+    ActionableCells(title: "Cells overriding preferredLayoutAttributes. We should expect to see dynamic sizing", controller: StoryboardViewControllers.LayoutAttributesCellsViewController)]
     
     override func viewDidLoad() {
         super.viewDidLoad()

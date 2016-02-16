@@ -21,6 +21,33 @@ extension UILabel {
     }
 }
 
+class SimpleCellImplementingLayoutAttributes: UICollectionViewCell {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        contentView.backgroundColor = .blueColor()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    var desiredSize: CGSize = CGSize(width: 100, height: 100)
+    
+    // Without caching our size for preferredLayoutAttributesFittingAttributes it will get called multiple times and crash if we keep changing the frame
+    var cachedSize: CGSize?
+    
+    override func preferredLayoutAttributesFittingAttributes(layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
+        if let cachedSize = cachedSize where CGSizeEqualToSize(cachedSize, desiredSize) {
+            return layoutAttributes
+        }
+        cachedSize = desiredSize
+        var newFrame = layoutAttributes.frame
+        newFrame.size = desiredSize
+        layoutAttributes.frame = newFrame
+        return layoutAttributes
+    }
+}
+
 class SimpleCell: UICollectionViewCell {
     
     let label: UILabel
