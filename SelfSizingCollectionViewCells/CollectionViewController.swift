@@ -42,7 +42,7 @@ class CollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.flowLayout.estimatedItemSize = CGSizeMake(100, 100)
+        self.flowLayout.estimatedItemSize = CGSize(width: 100, height: 100)
         self.collectionView!.registerClass(SimpleCell.self, forCellWithReuseIdentifier: String(SimpleCell.self))
         self.collectionView!.registerClass(SimpleCellImplementingLayoutAttributes.self, forCellWithReuseIdentifier: String(SimpleCellImplementingLayoutAttributes.self))
         reloadCollectionViewWithFontSizeChanges(collectionView!)
@@ -59,6 +59,7 @@ class CollectionViewController: UICollectionViewController {
         case .SimpleCell:
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(String(SimpleCell.self), forIndexPath: indexPath) as! SimpleCell
             cell.label.text = "Hello World"
+            cell.isHeightCalculated = true
             return cell
         case .LayoutAttributesCell:
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(String(SimpleCellImplementingLayoutAttributes.self), forIndexPath: indexPath) as! SimpleCellImplementingLayoutAttributes
