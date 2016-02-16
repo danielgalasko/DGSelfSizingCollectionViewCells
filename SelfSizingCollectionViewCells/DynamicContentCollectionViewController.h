@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UICollectionViewController
+@interface DynamicContentCollectionViewController : UICollectionViewController
 
 
 @end

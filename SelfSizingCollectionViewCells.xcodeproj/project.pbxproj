@@ -9,12 +9,15 @@
 /* Begin PBXBuildFile section */
 		42EAEAD619C9EBF600C2AEEC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 42EAEAD519C9EBF600C2AEEC /* main.m */; };
 		42EAEAD919C9EBF600C2AEEC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 42EAEAD819C9EBF600C2AEEC /* AppDelegate.m */; };
-		42EAEADC19C9EBF600C2AEEC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42EAEADB19C9EBF600C2AEEC /* ViewController.m */; };
+		42EAEADC19C9EBF600C2AEEC /* DynamicContentCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42EAEADB19C9EBF600C2AEEC /* DynamicContentCollectionViewController.m */; };
 		42EAEADF19C9EBF600C2AEEC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42EAEADD19C9EBF600C2AEEC /* Main.storyboard */; };
 		42EAEAE119C9EBF600C2AEEC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42EAEAE019C9EBF600C2AEEC /* Images.xcassets */; };
 		42EAEAE419C9EBF600C2AEEC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42EAEAE219C9EBF600C2AEEC /* LaunchScreen.xib */; };
 		42EAEAF019C9EBF600C2AEEC /* SelfSizingCollectionViewCellsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 42EAEAEF19C9EBF600C2AEEC /* SelfSizingCollectionViewCellsTests.m */; };
 		42EAEAFE19C9F96A00C2AEEC /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42EAEAFD19C9F96A00C2AEEC /* CollectionViewCell.m */; };
+		46F017D21C7386500094204D /* SimpleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F017D11C7386500094204D /* SimpleCell.swift */; };
+		46F017D41C7388650094204D /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F017D31C7388650094204D /* HomeTableViewController.swift */; };
+		46F017D61C738AE20094204D /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F017D51C738AE20094204D /* CollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,8 +36,8 @@
 		42EAEAD519C9EBF600C2AEEC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		42EAEAD719C9EBF600C2AEEC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		42EAEAD819C9EBF600C2AEEC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		42EAEADA19C9EBF600C2AEEC /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		42EAEADB19C9EBF600C2AEEC /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		42EAEADA19C9EBF600C2AEEC /* DynamicContentCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DynamicContentCollectionViewController.h; sourceTree = "<group>"; };
+		42EAEADB19C9EBF600C2AEEC /* DynamicContentCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DynamicContentCollectionViewController.m; sourceTree = "<group>"; };
 		42EAEADE19C9EBF600C2AEEC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		42EAEAE019C9EBF600C2AEEC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		42EAEAE319C9EBF600C2AEEC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -43,6 +46,10 @@
 		42EAEAEF19C9EBF600C2AEEC /* SelfSizingCollectionViewCellsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelfSizingCollectionViewCellsTests.m; sourceTree = "<group>"; };
 		42EAEAFC19C9F96A00C2AEEC /* CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
 		42EAEAFD19C9F96A00C2AEEC /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
+		46F017D01C7386500094204D /* SelfSizingCollectionViewCells-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SelfSizingCollectionViewCells-Bridging-Header.h"; sourceTree = "<group>"; };
+		46F017D11C7386500094204D /* SimpleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleCell.swift; sourceTree = "<group>"; };
+		46F017D31C7388650094204D /* HomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
+		46F017D51C738AE20094204D /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,14 +93,18 @@
 			children = (
 				42EAEAFC19C9F96A00C2AEEC /* CollectionViewCell.h */,
 				42EAEAFD19C9F96A00C2AEEC /* CollectionViewCell.m */,
-				42EAEADA19C9EBF600C2AEEC /* ViewController.h */,
-				42EAEADB19C9EBF600C2AEEC /* ViewController.m */,
+				42EAEADA19C9EBF600C2AEEC /* DynamicContentCollectionViewController.h */,
+				42EAEADB19C9EBF600C2AEEC /* DynamicContentCollectionViewController.m */,
 				42EAEADD19C9EBF600C2AEEC /* Main.storyboard */,
 				42EAEAD719C9EBF600C2AEEC /* AppDelegate.h */,
 				42EAEAD819C9EBF600C2AEEC /* AppDelegate.m */,
 				42EAEAE019C9EBF600C2AEEC /* Images.xcassets */,
 				42EAEAE219C9EBF600C2AEEC /* LaunchScreen.xib */,
 				42EAEAD319C9EBF600C2AEEC /* Supporting Files */,
+				46F017D11C7386500094204D /* SimpleCell.swift */,
+				46F017D01C7386500094204D /* SelfSizingCollectionViewCells-Bridging-Header.h */,
+				46F017D31C7388650094204D /* HomeTableViewController.swift */,
+				46F017D51C738AE20094204D /* CollectionViewController.swift */,
 			);
 			path = SelfSizingCollectionViewCells;
 			sourceTree = "<group>";
@@ -168,6 +179,7 @@
 		42EAEAC819C9EBF600C2AEEC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = Afrozaar;
 				TargetAttributes = {
@@ -224,10 +236,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46F017D41C7388650094204D /* HomeTableViewController.swift in Sources */,
 				42EAEAFE19C9F96A00C2AEEC /* CollectionViewCell.m in Sources */,
-				42EAEADC19C9EBF600C2AEEC /* ViewController.m in Sources */,
+				42EAEADC19C9EBF600C2AEEC /* DynamicContentCollectionViewController.m in Sources */,
 				42EAEAD919C9EBF600C2AEEC /* AppDelegate.m in Sources */,
+				46F017D61C738AE20094204D /* CollectionViewController.swift in Sources */,
 				42EAEAD619C9EBF600C2AEEC /* main.m in Sources */,
+				46F017D21C7386500094204D /* SimpleCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,9 +364,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = SelfSizingCollectionViewCells/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SelfSizingCollectionViewCells/SelfSizingCollectionViewCells-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -359,9 +378,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = SelfSizingCollectionViewCells/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SelfSizingCollectionViewCells/SelfSizingCollectionViewCells-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
