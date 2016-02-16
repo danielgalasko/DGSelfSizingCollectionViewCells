@@ -27,6 +27,7 @@ class CollectionViewController: UICollectionViewController {
         enum CellType {
             case SimpleCell
             case LayoutAttributesCell
+            case SimpleCellWithDynamicText
         }
         
         let cellType: CellType
@@ -64,6 +65,12 @@ class CollectionViewController: UICollectionViewController {
             let mod = (indexPath.row % 5)
             let width = (mod * 10 + 50)
             cell.desiredSize = CGSize(width: width , height: 100)
+            return cell
+        case .SimpleCellWithDynamicText:
+            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(String(SimpleCell.self), forIndexPath: indexPath) as! SimpleCell
+            let mod = (indexPath.row % 5)
+            cell.isHeightCalculated = false
+            cell.label.text = RandomStringGenerator.randomStringWithLength(UInt(mod + 4))
             return cell
         }
     }
