@@ -16,6 +16,7 @@
 @implementation CollectionViewCell
 
 - (void)awakeFromNib {
+    [super awakeFromNib];
     self.cachedSize = CGSizeZero;
 }
 

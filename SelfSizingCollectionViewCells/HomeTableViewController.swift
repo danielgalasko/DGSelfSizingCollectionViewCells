@@ -13,39 +13,39 @@ class HomeCell: UITableViewCell {
 }
 
 enum StoryboardViewControllers {
-    case StaticCellsViewController
-    case DynamicCellsViewController
-    case LayoutAttributesCellsViewController
-    case DynamicCellsWithLayoutAttributes
+    case staticCellsViewController
+    case dynamicCellsViewController
+    case layoutAttributesCellsViewController
+    case dynamicCellsWithLayoutAttributes
     
     func storyboardID() -> String {
         switch self {
-        case .StaticCellsViewController:
+        case .staticCellsViewController:
             return "CollectionViewController"
-        case .DynamicCellsViewController:
+        case .dynamicCellsViewController:
             return "DynamicContentCollectionViewController"
-        case .LayoutAttributesCellsViewController:
+        case .layoutAttributesCellsViewController:
             return "CollectionViewController"
-        case .DynamicCellsWithLayoutAttributes:
+        case .dynamicCellsWithLayoutAttributes:
             return "CollectionViewController"
         }
     }
     
     func createController() -> UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewControllerWithIdentifier(storyboardID())
+        let controller = storyboard.instantiateViewController(withIdentifier: storyboardID())
         configureControllerIfNeeded(controller)
         return controller
     }
     
-    func configureControllerIfNeeded(controller: UIViewController) {
+    func configureControllerIfNeeded(_ controller: UIViewController) {
         switch self {
-        case .LayoutAttributesCellsViewController:
+        case .layoutAttributesCellsViewController:
             let c = controller as! CollectionViewController
-            c.configuration = CollectionViewController.Configuration(cellType: CollectionViewController.Configuration.CellType.LayoutAttributesCell)
-        case .DynamicCellsWithLayoutAttributes:
+            c.configuration = CollectionViewController.Configuration(cellType: CollectionViewController.Configuration.CellType.layoutAttributesCell)
+        case .dynamicCellsWithLayoutAttributes:
             let c = controller as! CollectionViewController
-            c.configuration = CollectionViewController.Configuration(cellType: CollectionViewController.Configuration.CellType.SimpleCellWithDynamicText)
+            c.configuration = CollectionViewController.Configuration(cellType: CollectionViewController.Configuration.CellType.simpleCellWithDynamicText)
         default:
             break
         }
@@ -59,10 +59,10 @@ class HomeTableViewController: UITableViewController {
         let controller: StoryboardViewControllers
     }
     
-    let cells = [ActionableCells(title: "Static Content Cells. Technically since the content never changes these cells should all be the same size. This demonstrates what the layout does when all cells have the same size", controller: StoryboardViewControllers.StaticCellsViewController),
-        ActionableCells(title: "Dynamic content cells implementing preferred layout attributes in the cell subclass with auto layout", controller: StoryboardViewControllers.DynamicCellsWithLayoutAttributes),
-        ActionableCells(title: "Dynamic Content Cells using auto layout WITHOUT overriding preferredLayoutAttributes", controller: StoryboardViewControllers.DynamicCellsViewController),
-        ActionableCells(title: "Cells overriding preferredLayoutAttributes with NO auto layout. We should expect to see dynamic sizing.", controller: StoryboardViewControllers.LayoutAttributesCellsViewController)]
+    let cells = [ActionableCells(title: "Static Content Cells. Technically since the content never changes these cells should all be the same size. This demonstrates what the layout does when all cells have the same size", controller: StoryboardViewControllers.staticCellsViewController),
+        ActionableCells(title: "Dynamic content cells implementing preferred layout attributes in the cell subclass with auto layout", controller: StoryboardViewControllers.dynamicCellsWithLayoutAttributes),
+        ActionableCells(title: "Dynamic Content Cells using auto layout WITHOUT overriding preferredLayoutAttributes", controller: StoryboardViewControllers.dynamicCellsViewController),
+        ActionableCells(title: "Cells overriding preferredLayoutAttributes with NO auto layout. We should expect to see dynamic sizing.", controller: StoryboardViewControllers.layoutAttributesCellsViewController)]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,20 +71,20 @@ class HomeTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cells.count
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("HomeCellReuseIdentifier", forIndexPath: indexPath) as! HomeCell
-        cell.accessoryType = .DisclosureIndicator
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "HomeCellReuseIdentifier", for: indexPath) as! HomeCell
+        cell.accessoryType = .disclosureIndicator
         cell.label.text = cells[indexPath.row].title
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let controller = cells[indexPath.row].controller.createController()
-        showViewController(controller, sender: nil)
+        show(controller, sender: nil)
     }
 
 }

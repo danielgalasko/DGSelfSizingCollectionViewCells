@@ -11,10 +11,10 @@ import UIKit
 private let reuseIdentifier = "Cell"
 
 extension UIViewController {
-    func reloadCollectionViewWithFontSizeChanges(collectionView: UICollectionView) {
-        NSNotificationCenter.defaultCenter().addObserverForName(UIContentSizeCategoryDidChangeNotification,
+    func reloadCollectionViewWithFontSizeChanges(_ collectionView: UICollectionView) {
+        NotificationCenter.default.addObserver(forName: NSNotification.Name.UIContentSizeCategoryDidChange,
             object: nil,
-            queue: NSOperationQueue.mainQueue()) { (notification) -> Void in
+            queue: OperationQueue.main) { (notification) -> Void in
                 collectionView.reloadData()
         }
     }
@@ -25,16 +25,16 @@ class CollectionViewController: UICollectionViewController {
     struct Configuration {
         
         enum CellType {
-            case SimpleCell
-            case LayoutAttributesCell
-            case SimpleCellWithDynamicText
+            case simpleCell
+            case layoutAttributesCell
+            case simpleCellWithDynamicText
         }
         
         let cellType: CellType
         
     }
     
-    var configuration: Configuration = Configuration(cellType: .SimpleCell)
+    var configuration: Configuration = Configuration(cellType: .simpleCell)
     
     var flowLayout: UICollectionViewFlowLayout {
         return self.collectionView?.collectionViewLayout as! UICollectionViewFlowLayout
@@ -43,35 +43,35 @@ class CollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.flowLayout.estimatedItemSize = CGSize(width: 100, height: 100)
-        self.collectionView!.registerClass(SimpleCell.self, forCellWithReuseIdentifier: String(SimpleCell.self))
-        self.collectionView!.registerClass(SimpleCellImplementingLayoutAttributes.self, forCellWithReuseIdentifier: String(SimpleCellImplementingLayoutAttributes.self))
+        self.collectionView!.register(SimpleCell.self, forCellWithReuseIdentifier: String(describing: SimpleCell.self))
+        self.collectionView!.register(SimpleCellImplementingLayoutAttributes.self, forCellWithReuseIdentifier: String(describing: SimpleCellImplementingLayoutAttributes.self))
         reloadCollectionViewWithFontSizeChanges(collectionView!)
     }
 
     // MARK: UICollectionViewDataSource
 
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 100
     }
 
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch configuration.cellType {
-        case .SimpleCell:
-            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(String(SimpleCell.self), forIndexPath: indexPath) as! SimpleCell
+        case .simpleCell:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: SimpleCell.self), for: indexPath) as! SimpleCell
             cell.label.text = "Hello World"
             cell.isHeightCalculated = true
             return cell
-        case .LayoutAttributesCell:
-            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(String(SimpleCellImplementingLayoutAttributes.self), forIndexPath: indexPath) as! SimpleCellImplementingLayoutAttributes
+        case .layoutAttributesCell:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: SimpleCellImplementingLayoutAttributes.self), for: indexPath) as! SimpleCellImplementingLayoutAttributes
             let mod = (indexPath.row % 5)
             let width = (mod * 10 + 50)
             cell.desiredSize = CGSize(width: width , height: 100)
             return cell
-        case .SimpleCellWithDynamicText:
-            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(String(SimpleCell.self), forIndexPath: indexPath) as! SimpleCell
+        case .simpleCellWithDynamicText:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: SimpleCell.self), for: indexPath) as! SimpleCell
             let mod = (indexPath.row % 5)
             cell.isHeightCalculated = false
-            cell.label.text = RandomStringGenerator.randomStringWithLength(UInt(mod + 4))
+            cell.label.text = RandomStringGenerator.randomString(withLength: UInt(mod + 4))
             return cell
         }
     }
