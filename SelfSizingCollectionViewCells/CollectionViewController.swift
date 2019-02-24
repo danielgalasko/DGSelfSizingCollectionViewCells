@@ -46,6 +46,17 @@ class CollectionViewController: UICollectionViewController {
         self.collectionView!.register(SimpleCell.self, forCellWithReuseIdentifier: String(describing: SimpleCell.self))
         self.collectionView!.register(SimpleCellImplementingLayoutAttributes.self, forCellWithReuseIdentifier: String(describing: SimpleCellImplementingLayoutAttributes.self))
         reloadCollectionViewWithFontSizeChanges(collectionView!)
+        
+        switch configuration.cellType {
+        case .simpleCell:
+            break
+        case .layoutAttributesCell:
+            let widths = Array(0 ..< collectionView(collectionView!, numberOfItemsInSection: 0)).map({ ($0 % 5) * 10 + 50 })
+            generatedSizes = widths.map({ CGSize(width: CGFloat($0), height: 100)})
+        case .simpleCellWithDynamicText:
+            let indices = Array(0 ..< collectionView(collectionView!, numberOfItemsInSection: 0))
+            generatedStrings = indices.map({ RandomStringGenerator.randomString(withLength: UInt(($0 % 5) + 4)) })
+        }
     }
 
     // MARK: UICollectionViewDataSource
@@ -53,6 +64,9 @@ class CollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 100
     }
+    
+    var generatedStrings: [String] = []
+    var generatedSizes: [CGSize] = []
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch configuration.cellType {
@@ -63,15 +77,12 @@ class CollectionViewController: UICollectionViewController {
             return cell
         case .layoutAttributesCell:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: SimpleCellImplementingLayoutAttributes.self), for: indexPath) as! SimpleCellImplementingLayoutAttributes
-            let mod = (indexPath.row % 5)
-            let width = (mod * 10 + 50)
-            cell.desiredSize = CGSize(width: width , height: 100)
+            cell.desiredSize = generatedSizes[indexPath.item]
             return cell
         case .simpleCellWithDynamicText:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: SimpleCell.self), for: indexPath) as! SimpleCell
-            let mod = (indexPath.row % 5)
             cell.isHeightCalculated = false
-            cell.label.text = RandomStringGenerator.randomString(withLength: UInt(mod + 4))
+            cell.label.text = generatedStrings[indexPath.item]
             return cell
         }
     }
