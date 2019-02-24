@@ -25,6 +25,8 @@ class SimpleCellImplementingLayoutAttributes: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.backgroundColor = .blue
+        contentView.layer.cornerRadius = 6
+        contentView.clipsToBounds = true
     }
 
     required init?(coder aDecoder: NSCoder) {
